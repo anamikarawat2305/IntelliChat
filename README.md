@@ -1,9 +1,8 @@
-# Installation
+# INTELLICHAT
 
-- npm create vite@latest
-- Project name- client , framework- React, variant- Javascript
-- cd client
-- npm i
-- npm i react-redux @reduxjs/toolkit @heroicons/react react-router-dom react-dropzone react-chat-engine-advanced.
-- npm run dev
-- npm i -D sass
+## Documentation
+
+> `https://chatengine.io/docs/react/v2`
+> `https://rest.chatengine.io/`
+> `https://chatengine-io.github.io/react-chat-engine-advanced/?path=%2Fdocs%2Fmultichatwindow--default-story`
+> `https://chatengine.io/`
