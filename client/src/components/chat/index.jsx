@@ -25,6 +25,7 @@ const Chat = () => {
         {...chatProps}
         style={{ height: "100vh" }}
         renderChatHeader={(chat) => <Header chat={chat} />}
+
         renderMessageForm={(props) => {
           if (chatProps.chat?.title.startsWith("AiChat_")) {
             return <Ai props={props} activeChat={chatProps.chat} />;
@@ -40,6 +41,7 @@ const Chat = () => {
             <StandardMessageForm props={props} activeChat={chatProps.chat} />
           );
         }}
+        
       />
     </div>
   );
