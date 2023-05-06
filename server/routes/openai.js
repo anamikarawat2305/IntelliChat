@@ -102,9 +102,11 @@ const router = express.Router();
 router.post("/text", async (req, res) => {
   try {
     const { text, activeChatId } = req.body;
-
+     // console.log('req.body:',req.body)
     const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
+      //https://platform.openai.com/playground
+      //https://platform.openai.com/docs/api-reference/chat/create
       messages: [
         { role: "system", content: "You are a helpful assistant." }, // this represents the bot and what role they will assume
         { role: "user", content: text }, // the message that the user sends
@@ -125,7 +127,7 @@ router.post("/text", async (req, res) => {
         // messages that the bot sends and then provide them to the bot in the next request.
       ],
     });
-
+     //console.log('response data', response.data.choices[0].message.content)
     await axios.post(
       `https://api.chatengine.io/chats/${activeChatId}/messages/`,
       { text: response.data.choices[0].message.content },
@@ -148,8 +150,10 @@ router.post("/text", async (req, res) => {
 router.post("/code", async (req, res) => {
   try {
     const { text, activeChatId } = req.body;
-
-    const response = await openai.createChatCompletion({
+   //console.log('req.body:',req.body)
+   //console.log('text:',text)
+    
+   const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
         {
@@ -160,8 +164,9 @@ router.post("/code", async (req, res) => {
         { role: "user", content: text }, // the message that the user sends
       ],
     });
-
-    await axios.post(
+   //console.log('response data', response.data.choices[0].message.content);
+    
+   await axios.post(
       `https://api.chatengine.io/chats/${activeChatId}/messages/`,
       { text: response.data.choices[0].message.content },
       {
@@ -172,6 +177,7 @@ router.post("/code", async (req, res) => {
         },
       }
     );
+    //console.log("Finished request")
 
     res.status(200).json({ text: response.data.choices[0].message.content });
   } catch (error) {
@@ -183,7 +189,7 @@ router.post("/code", async (req, res) => {
 router.post("/assist", async (req, res) => {
   try {
     const { text } = req.body;
-
+    //console.log('req.body:',req.body)
     const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
