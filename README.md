@@ -9,3 +9,4 @@
 - [Heroicons](https://heroicons.com/)
 - [OpenAI: Docs](https://platform.openai.com/docs/guides/chat)
 - [Intro: OpenAi](https://platform.openai.com/docs/introduction)
+- [OpenAI Nodejs Library](https://github.com/openai/openai-node)
