@@ -11,13 +11,14 @@ import Ai from "@/components/customMessageForms/Ai";
 import AiCode from "@/components/customMessageForms/AiCode";
 import AiAssist from "@/components/customMessageForms/AiAssist";
 
-const Chat = () => {
+const Chat = ({user,secret}) => {
   const chatProps = useMultiChatLogic(
     import.meta.env.VITE_PROJECT_ID,
-    "anamika",
-    "2305"
+    user,
+    secret
   );
-
+    // "anamika",
+    // "2305"
   return (
     <div style={{ flexBasis: "100%" }}>
       <MultiChatSocket {...chatProps} />
@@ -25,14 +26,17 @@ const Chat = () => {
         {...chatProps}
         style={{ height: "100vh" }}
         renderChatHeader={(chat) => <Header chat={chat} />}
-
+               
         renderMessageForm={(props) => {
+          // AI CHAT From customMessageForms
           if (chatProps.chat?.title.startsWith("AiChat_")) {
             return <Ai props={props} activeChat={chatProps.chat} />;
           }
+          // AICode CHAT From customMessageForms
           if (chatProps.chat?.title.startsWith("AiCode_")) {
             return <AiCode props={props} activeChat={chatProps.chat} />;
           }
+          // AIAssist CHAT From customMessageForms
           if (chatProps.chat?.title.startsWith("AiAssist_")) {
             return <AiAssist props={props} activeChat={chatProps.chat} />;
           }

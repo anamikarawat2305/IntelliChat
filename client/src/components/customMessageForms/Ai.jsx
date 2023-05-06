@@ -2,6 +2,7 @@ import { usePostAiTextMutation } from "@/state/api";
 import React, { useState } from "react";
 import MessageFormUI from "./MessageFormUI";
 
+// This is the form for the AI chatbot. It is a simple text input that sends the message to the AI chatbot. 
 const Ai = ({ props, activeChat }) => {
   const [message, setMessage] = useState("");
   const [attachment, setAttachment] = useState("");

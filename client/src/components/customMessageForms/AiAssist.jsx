@@ -2,6 +2,9 @@ import { usePostAiAssistMutation } from "@/state/api";
 import React, { useEffect, useState } from "react";
 import MessageFormUI from "./MessageFormUI";
 
+// https://usehooks.com/useDebounce/ - debounce hook from here
+//to prevent too many api calls to the ai assist api endpoint 
+//when user is typing in the message form input field - this hook is used in the AiAssist component below 
 function useDebounce(value, delay) {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
@@ -17,7 +20,8 @@ function useDebounce(value, delay) {
 
   return debouncedValue;
 }
-
+//AiAssist helps to auto complete the user's message by suggesting the next word 
+//to type in the message form input field
 const AiAssist = ({ props, activeChat }) => {
   const [message, setMessage] = useState("");
   const [attachment, setAttachment] = useState("");
@@ -46,7 +50,7 @@ const AiAssist = ({ props, activeChat }) => {
   };
 
   const debouncedValue = useDebounce(message, 1000);
-
+//useEffect hook to trigger the ai assist api endpoint to get the next word to type in the message form input field
   useEffect(() => {
     if (debouncedValue) {
       const form = { text: message };
@@ -54,8 +58,8 @@ const AiAssist = ({ props, activeChat }) => {
     }
   }, [debouncedValue]); // eslint-disable-line
 
+//handleKeyDown function to handle the enter and tab key presses
   const handleKeyDown = (e) => {
-    // handle enter and tab
     if (e.keyCode === 9 || e.keyCode === 13) {
       e.preventDefault();
       setMessage(`${message} ${appendText}`);
@@ -63,6 +67,7 @@ const AiAssist = ({ props, activeChat }) => {
     setAppendText("");
   };
 
+//useEffect hook to set the appendText state to the next word to type in the message form input field
   useEffect(() => {
     if (resultAssist.data?.text) {
       setAppendText(resultAssist.data?.text);
@@ -75,6 +80,7 @@ const AiAssist = ({ props, activeChat }) => {
       message={message}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
+
       appendText={appendText}
       handleKeyDown={handleKeyDown}
     />

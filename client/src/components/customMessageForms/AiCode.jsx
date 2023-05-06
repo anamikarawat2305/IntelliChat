@@ -1,7 +1,7 @@
 import { usePostAiCodeMutation } from "@/state/api";
 import React, { useState } from "react";
 import MessageFormUI from "./MessageFormUI";
-
+//AI code is a custom message form that allows the user to send code to the AI chatbot
 const AiCode = ({ props, activeChat }) => {
   const [message, setMessage] = useState("");
   const [attachment, setAttachment] = useState("");
