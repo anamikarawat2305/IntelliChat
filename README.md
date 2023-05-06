@@ -30,3 +30,4 @@
 - [OpenAI: Docs](https://platform.openai.com/docs/guides/chat)
 - [Intro: OpenAi](https://platform.openai.com/docs/introduction)
 - [OpenAI Nodejs Library](https://github.com/openai/openai-node)
+- [Model: gpt-3.5-turbo](https://platform.openai.com/docs/api-reference/chat/create)
