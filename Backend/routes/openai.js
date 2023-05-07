@@ -1,4 +1,11 @@
 // CODE FOR OLD VERSION OF OPENAI API
+import express from "express";
+import axios from "axios";
+import dotenv from "dotenv";
+import { openai } from "../index.js";
+
+dotenv.config();
+const router = express.Router();
 
 // /* ROUTER FOR TEXT MESSAGE */
 // router.post("/text", async (req, res) => {
@@ -87,17 +94,10 @@
 //     res.status(500).json({ error: error.message });
 //   }
 // });
-
+// export default router;
 
 //CODE FOR NEW VERSION OF OPENAI API gpt-3.5
 
-import express from "express";
-import axios from "axios";
-import dotenv from "dotenv";
-import { openai } from "../index.js";
-
-dotenv.config();
-const router = express.Router();
 
 router.post("/text", async (req, res) => {
   try {
