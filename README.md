@@ -4,10 +4,11 @@
 - It is a personalized, easy to use, and real time chat application which can be used to chat with multiple people at the same time.
 - It has login, register functionality.
 - We will be able to talk through our chat application similar like ChatGPT.
-- It has 3 helping chat AI bot-
-1 AICode helps in coding
-2 AIAssist helps to auto complete the user's message by suggesting the next word to type in the message form input field
-3 AIChat is a simple text input that sends the message to the AI chatbot.
+- It has 3 helping chat AI bot
+
+1. AICode helps in coding
+2. AIAssist helps to auto complete the user's message by suggesting the next word to type in the message form input field
+3. AIChat is a simple text input that sends the message to the AI chatbot.
 
 ## Purpose
 
